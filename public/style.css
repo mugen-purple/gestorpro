@@ -1,0 +1,468 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 320px;
+
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+
+    text-align: center;
+}
+
+.login-box h1{
+    margin-bottom: 30px;
+    color: #0f172a;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    margin-bottom: 20px;
+}
+
+.input-group label{
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input{
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.input-group input:focus{
+    border-color: #2563eb;
+
+    box-shadow: 0px 0px 8px rgba(37, 99, 235, 0.4);
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #2563eb;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: #1d4ed8;
+    transform: scale(1.02);
+}
+
+.sidebar{
+    width: 220px;
+    box-sizing: border-box;
+    height: 100vh;
+
+    background: #0f172a;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2{
+    color: white;
+    margin-bottom: 30px;
+}
+
+.sidebar a{
+    color: white;
+    text-decoration: none;
+
+    margin-bottom: 15px;
+
+    padding: 10px;
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.sidebar a:hover{
+    background: #1e293b;
+}
+
+.content{
+    margin-left: 280px;
+    padding: 40px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h1{
+    color: white;
+    margin-bottom: 30px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card{
+    background: white;
+
+    padding: 30px;
+    border-radius: 15px;
+
+    min-width: 220px;
+
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+.card h2{
+    margin: 0;
+    color: #2563eb;
+}
+
+.card p{
+    color: #555;
+}
+
+.form-box{
+    background: white;
+
+    padding: 30px;
+    border-radius: 15px;
+
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-box input,
+.form-box textarea{
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.form-box textarea{
+    resize: none;
+    height: 120px;
+}
+
+.lista-clientes{
+    margin-top: 40px;
+}
+
+.lista-clientes h2{
+    color: white;
+    margin-bottom: 20px;
+}
+
+.cliente-card{
+    background: white;
+
+    padding: 20px;
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.cliente-card h3{
+    margin-top: 0;
+    color: #2563eb;
+}
+
+.delete-btn{
+    margin-top: 10px;
+
+    background: #dc2626;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.delete-btn:hover{
+    background: #b91c1c;
+}
+
+.edit-btn{
+    margin-top: 10px;
+
+    background: #2563eb;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.edit-btn:hover{
+    background: #1d4ed8;
+}
+
+.form-box select{
+    padding: 12px;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    font-size: 15px;
+}
+
+.status-buttons{
+    display: flex;
+    gap: 10px;
+
+    margin-top: 15px;
+
+    flex-wrap: wrap;
+}
+
+.status-btn{
+    background: #f59e0b;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.status-btn:hover{
+    transform: scale(1.05);
+}
+
+.andamento{
+    background: #2563eb;
+}
+
+.finalizado{
+    background: #16a34a;
+}
+
+.scroll-area{
+    flex: 1;
+
+    overflow-y: auto;
+
+    margin-top: 20px;
+
+    padding-right: 10px;
+}
+
+/* ===== PÁGINA USUÁRIOS / TABELAS ===== */
+
+.content h1{
+    color: white;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.table-container{
+    margin-top: 20px;
+    background: white;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead{
+    background: #2563eb;
+}
+
+th{
+    color: white;
+    padding: 18px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+td{
+    padding: 18px 20px;
+    color: #111827;
+    font-size: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+}
+
+tr:hover{
+    background: #f8fafc;
+}
+
+td form{
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.edit-btn,
+.delete-btn{
+    width: auto;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-top: 0;
+}
+
+.edit-btn{
+    background: #2563eb;
+}
+
+.edit-btn:hover{
+    background: #1d4ed8;
+}
+
+.delete-btn{
+    background: #dc2626;
+}
+
+.delete-btn:hover{
+    background: #b91c1c;
+}
+
+.sidebar{
+    width: 240px;
+      box-sizing: border-box;
+    height: 100vh;
+    background: #020617;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 8px 0 25px rgba(0,0,0,0.25);
+}
+
+.sidebar-logo h2{
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.sidebar-logo span{
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.sidebar-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.sidebar-menu a{
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 13px 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.sidebar-menu a:hover{
+    background: #1e293b;
+    color: white;
+    transform: translateX(4px);
+}
+
+.sidebar-user{
+    border-top: 1px solid #1e293b;
+    padding-top: 18px;
+}
+
+.sidebar-user p{
+    color: #94a3b8;
+    font-size: 13px;
+    word-break: break-word;
+    margin-bottom: 12px;
+}
+
+.sidebar-user a{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    background: #dc2626;
+    color: white;
+    text-decoration: none;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.sidebar-user a:hover{
+    background: #b91c1c;
+}

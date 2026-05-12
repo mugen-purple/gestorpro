@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+   <div class="sidebar">
+
+    <div class="sidebar-logo">
+        <h2>GestorPro</h2>
+        <span>Sistema empresarial</span>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/clientes">Clientes</a>
+        <a href="/ordens">Ordens</a>
+        <a href="/financeiro">Financeiro</a>
+
+        <% if(usuario.tipo === 'admin'){ %>
+            <a href="/usuarios">Usuários</a>
+        <% } %>
+
+    </div>
+
+    <div class="sidebar-user">
+        <p><%= usuario.email %></p>
+        <a href="/logout">Sair</a>
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="content">
+
+        <h1>Usuários</h1>
+
+        <div class="scroll-area">
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Tipo</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <% usuarios.forEach(usuarioItem => { %>
+
+                            <tr>
+
+                                <td>
+                                    <%= usuarioItem.email %>
+                                </td>
+
+                                <td>
+                                    <%= usuarioItem.status %>
+                                </td>
+
+                                <td>
+                                    <%= usuarioItem.tipo %>
+                                </td>
+
+                                <td>
+
+                                    <form
+                                        action="/ativar-usuario/<%= usuarioItem.id %>"
+                                        method="POST"
+                                    >
+
+                                        <button class="edit-btn">
+                                            Ativar
+                                        </button>
+
+                                    </form>
+
+                                    <form
+                                        action="/bloquear-usuario/<%= usuarioItem.id %>"
+                                        method="POST"
+                                    >
+
+                                        <button class="delete-btn">
+                                            Bloquear
+                                        </button>
+
+                                    </form>
+
+                                </td>
+
+                            </tr>
+
+                        <% }) %>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Financeiro</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+
+    <div class="sidebar-logo">
+        <h2>GestorPro</h2>
+        <span>Sistema empresarial</span>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/clientes">Clientes</a>
+        <a href="/ordens">Ordens</a>
+        <a href="/financeiro">Financeiro</a>
+
+        <% if(usuario.tipo === 'admin'){ %>
+            <a href="/usuarios">Usuários</a>
+        <% } %>
+
+    </div>
+
+    <div class="sidebar-user">
+        <p><%= usuario.email %></p>
+        <a href="/logout">Sair</a>
+    </div>
+
+</div>
+
+    <div class="content">
+
+        <h1>Financeiro</h1>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>R$ <%= faturamento %></h2>
+
+                <p>Faturamento total</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>R$ <%= pendente %></h2>
+
+                <p>Valor pendente</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2><%= finalizadas %></h2>
+
+                <p>Ordens finalizadas</p>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-area">
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Cliente</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <% ordens.forEach(ordem => { %>
+
+                            <tr>
+
+                                <td><%= ordem.cliente %></td>
+
+                                <td>R$ <%= ordem.valor %></td>
+
+                                <td><%= ordem.status %></td>
+
+                            </tr>
+
+                        <% }) %>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

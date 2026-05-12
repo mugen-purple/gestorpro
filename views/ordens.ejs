@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordens</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+
+    <div class="sidebar-logo">
+        <h2>GestorPro</h2>
+        <span>Sistema empresarial</span>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/clientes">Clientes</a>
+        <a href="/ordens">Ordens</a>
+        <a href="/financeiro">Financeiro</a>
+
+        <% if(usuario.tipo === 'admin'){ %>
+            <a href="/usuarios">Usuários</a>
+        <% } %>
+
+    </div>
+
+    <div class="sidebar-user">
+        <p><%= usuario.email %></p>
+        <a href="/logout">Sair</a>
+    </div>
+
+</div>
+
+    <div class="content">
+
+        <h1>Ordens de Serviço</h1>
+
+        <form class="form-box"
+              action="/salvar-ordem"
+              method="POST">
+
+            <select name="cliente">
+
+    <% clientes.forEach(cliente => { %>
+
+        <option value="<%= cliente.nome %>">
+
+            <%= cliente.nome %>
+
+        </option>
+
+    <% }) %>
+
+</select>
+
+            <textarea
+                name="descricao"
+                placeholder="Descrição do problema"
+            ></textarea>
+
+            <input
+                type="text"
+                name="valor"
+                placeholder="Valor"
+            >
+
+            <select name="status">
+
+                <option>
+                    Em análise
+                </option>
+
+                <option>
+                    Em andamento
+                </option>
+
+                <option>
+                    Finalizado
+                </option>
+
+            </select>
+
+            <button>
+                Salvar Ordem
+            </button>
+
+        </form>
+ <div class="scroll-area">
+
+         <div class="lista-clientes">
+
+    <h2>Ordens cadastradas</h2>
+
+    <% ordens.forEach(ordem => { %>
+
+        <div class="cliente-card">
+
+            <h3><%= ordem.cliente %></h3>
+
+            <p>
+                <strong>Problema:</strong>
+                <%= ordem.descricao %>
+            </p>
+
+            <p>
+                <strong>Valor:</strong>
+                R$ <%= ordem.valor %>
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <%= ordem.status %>
+            </p>
+
+           <div class="status-buttons">
+
+            <form
+    action="/deletar-ordem/<%= ordem.id %>"
+    method="POST"
+>
+
+    <button class="delete-btn">
+        Excluir Ordem
+    </button>
+
+</form>
+
+    <form
+        action="/atualizar-status/<%= ordem.id %>"
+        method="POST"
+    >
+
+        <input
+            type="hidden"
+            name="status"
+            value="Em análise"
+        >
+
+        <button class="status-btn">
+            Em análise
+        </button>
+
+    </form>
+
+    <form
+        action="/atualizar-status/<%= ordem.id %>"
+        method="POST"
+    >
+
+        <input
+            type="hidden"
+            name="status"
+            value="Em andamento"
+        >
+
+        <button class="status-btn andamento">
+            Em andamento
+        </button>
+
+    </form>
+
+    <form
+        action="/atualizar-status/<%= ordem.id %>"
+        method="POST"
+    >
+
+        <input
+            type="hidden"
+            name="status"
+            value="Finalizado"
+        >
+
+        <button class="status-btn finalizado">
+            Finalizado
+        </button>
+
+    </form>
+
+</div>
+        </div>
+
+    <% }) %>
+
+</div>
+
+    </div>
+ </div>
+</body>
+</html>
